@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- JQuery + Jquery validate -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+
+    <!--    los sig dos link son para el buscador-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
+    
+    <link rel="stylesheet" href="/CSS/index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/35796eb248.js"></script>
+    <title>Formulario</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="Index.html">PortalTV</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="Index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/HTML/packs.html">Packs de television</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="subscripcion.html">Subscripcion</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <p></p>
+    <div class="container center-xs">
+        <p style="font-weight: bold; font-size:2rem">Contrata tu pack</p>
+    </div>
+    <div class="container  center-xs">
+        <form action="#" id="formulario1" class="form">
+            <table class="table">
+
+                <tbody>
+                    <tr class="row">
+                        <td class="col-sm-3"> <label> Nombre completo: </label></td>
+                        <td class="col-sm-7"> <input type="text" name="txtNombre" class="form-control" id="txtNombre" placeholder="Ingrese su nombre" onkeydown="return alphaOnly(event)"></td>
+                    </tr>
+                    <tr class="row">
+                        <td class="col-sm-3"> <label> Rut: </label></td>
+                        <td class="col-sm-7"> <input type="text" name="txtRut" class="form-control" id="txtRut" oninput="checkRut(this)" placeholder="Ingrese su rut"></td>
+                    </tr>
+                    <tr class="row">
+                        <td class="col-sm-3"><label> Email: </label></td>
+                        <td class="col-sm-7"><input type="email" name="txtEmail" class="form-control" id="txtEmail" placeholder="Ingrese email"></td>
+                    </tr>
+                    <tr class="row">
+                        <td class="col-sm-3"> <label> Teléfono: </label> </td>
+                        <td class="col-sm-7"> <input type="tel" class="form-control" name="txtTelefono" id="txtTelefono" onKeyPress="return soloNumeros(event)" placeholder="Ingrese Telefono" onkeydown="return isNumberKey(event)"> </td>
+                    </tr>
+                    <tr class="row">
+                        <td class="col-sm-3"><label> Región: </label></td>
+                        <td class="col-sm-7"> <select id="regiones" class="form-control">
+                <option value=""> seleccione </option>
+                <option value="1"> Metropolitana </option>
+                <option value="2"> Coquimbo </option>
+                <option value="3"> Maule </option>
+                <option value="4"> Araucania </option>
+            </select>
+                        </td>
+                    </tr>
+
+                    <tr class="row">
+                        <td class="col-sm-3"><label> Fecha de nacimiento: </label></td>
+                        <td class="col-sm-7"><input type="date" class="form-control" name="bday" max="2000-12-31" min="1900-01-01"></td>
+                    </tr>
+                    <tr class="row">
+                        <td class="col-sm-3"><label> Pack a comprar: </label></td>
+                        <td class="col-sm-7"><select name="txtPack" id="Select" class="form-control">
+                    <option value=""> Seleccione Pack a comprar... </option>
+                    <option value="1"> ORO HD </option>
+                    <option value="2"> PLATA HD </option>
+                    <option value="3"> BRONCE HD </option>
+                    <option value="4"> ORO 4K </option>
+                    <option value="5"> PLATA 4K </option>
+                    <option value="6"> BRONCE 4K </option> 
+                    </select>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <input type="submit" value="Enviar" id="validar" class="btn-primary btn-lg">
+        </form>
+    </div>
+
+    <script src="../JS/subscripcion.js">
+    </script>
+    <script src="../JS/validador.js">
+    </script>
+    <script src="../JS/validarut.js">
+    </script>
+    <script src="../JS/validarNombre.js">
+    </script>
+    <script src="../JS/validarNumero.js">
+    </script>
+    </body>
+    </html>
