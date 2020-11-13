@@ -1,5 +1,7 @@
 from django import forms
 from .models import Cliente
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 
 
 class ClienteForm(forms.ModelForm):
@@ -29,3 +31,20 @@ class ClienteForm(forms.ModelForm):
             'fecha_nacimiento': forms.DateInput(attrs={'class': 'form-control'}),
             'tipo_pack': forms.Select(choices="opciones_tipo_pack", attrs={'class': 'form-control'}),
         }
+
+class RegistroForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = [
+                'username',
+                'first_name',
+                'last_name',
+                'email',
+            ]
+        labels = {
+                'username': 'Nombre de usuario',
+                'first_name': 'Nombre',
+                'last_name': 'Apellidos',
+                'email': 'Correo',
+        }
+
