@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,29 +51,31 @@
         <p style="font-weight: bold; font-size:2rem">Contrata tu pack</p>
     </div>
     <div class="container  center-xs">
-        <form action="#" id="formulario1" class="form">
-            <table class="table">
+        <form id="formulario1" class="form" method="POST" enctype= "multipart/form-data">
+        {% csrf_token %}
+            {% csrf_token %}
+            <!-- <table class="table">
 
                 <tbody>
                     <tr class="row">
                         <td class="col-sm-3"> <label> Nombre completo: </label></td>
-                        <td class="col-sm-7"> <input type="text" name="txtNombre" class="form-control" id="txtNombre" placeholder="Ingrese su nombre" onkeydown="return alphaOnly(event)"></td>
+                        <td class="col-sm-7"> <input type="text" name="name" class="form-control" id="txtNombre" placeholder="Ingrese su nombre" onkeydown="return alphaOnly(event)"></td>
                     </tr>
                     <tr class="row">
                         <td class="col-sm-3"> <label> Rut: </label></td>
-                        <td class="col-sm-7"> <input type="text" name="txtRut" class="form-control" id="txtRut" oninput="checkRut(this)" placeholder="Ingrese su rut"></td>
+                        <td class="col-sm-7"> <input type="text" name="rut" class="form-control" id="txtRut" oninput="checkRut(this)" placeholder="Ingrese su rut"></td>
                     </tr>
                     <tr class="row">
                         <td class="col-sm-3"><label> Email: </label></td>
-                        <td class="col-sm-7"><input type="email" name="txtEmail" class="form-control" id="txtEmail" placeholder="Ingrese email"></td>
+                        <td class="col-sm-7"><input type="email" name="email" class="form-control" id="txtEmail" placeholder="Ingrese email"></td>
                     </tr>
                     <tr class="row">
                         <td class="col-sm-3"> <label> Teléfono: </label> </td>
-                        <td class="col-sm-7"> <input type="tel" class="form-control" name="txtTelefono" id="txtTelefono" onKeyPress="return soloNumeros(event)" placeholder="Ingrese Telefono" onkeydown="return isNumberKey(event)"> </td>
+                        <td class="col-sm-7"> <input type="tel" class="form-control" name="telefono" id="txtTelefono" onKeyPress="return soloNumeros(event)" placeholder="Ingrese Telefono" onkeydown="return isNumberKey(event)"> </td>
                     </tr>
                     <tr class="row">
                         <td class="col-sm-3"><label> Región: </label></td>
-                        <td class="col-sm-7"> <select id="regiones" class="form-control">
+                        <td class="col-sm-7"> <select id="regiones" name="region" class="form-control">
                 <option value=""> seleccione </option>
                 <option value="1"> Metropolitana </option>
                 <option value="2"> Coquimbo </option>
@@ -101,8 +105,18 @@
                     </tr>
                 </tbody>
             </table>
-            <br>
-            <input type="submit" value="Enviar" id="validar" class="btn-primary btn-lg">
+            <br> -->
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.name}}">{{ field.label_tag }}</label><br>            
+                {{ field }}
+                <div class="bg-danger mt-1">{{ field.errors }}</div>
+            </div>
+            {% endfor %}
+
+
+            <input type="submit" value="Enviar" id="validar" class="btn btn-success">
         </form>
     </div>
 
