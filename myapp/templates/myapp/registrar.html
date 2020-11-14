@@ -1,0 +1,25 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+
+{% block title %}
+Registro
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/registro.css' %}" type="text/css">
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+    <h1>Crear Usuario</h1>
+    
+    <div class="content container">
+    <form method="POST">
+        {% csrf_token %} {{ form.as_p }}
+        <button type="submit">GRABAR</button>
+    </form>
+    </div>
+
+{% endblock %}
